@@ -15,118 +15,125 @@ class MyBoutik extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.blue,
-          title: Text(
-            "Eboutikoo",
-          ),
-          actions: [
-            Text("PEYE", style: TextStyle(fontSize: 18.0)),
-            Padding(padding: EdgeInsets.all(10)),
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: Text(
+          "Eboutikoo",
+        ),
+        actions: [
+          Text("PEYE", style: TextStyle(fontSize: 18.0)),
+          Padding(padding: EdgeInsets.all(10)),
+        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              child: Text(
+                "Eboutikoo",
+                style: TextStyle(fontSize: 20.0),
+              ),
+              decoration: BoxDecoration(color: Colors.blue),
+            ),
+            ListTile(
+              leading: Icon(Icons.login),
+              title: Text("K O N E K T E"),
+            ),
+            ListTile(
+              leading: Icon(Icons.shopping_bag),
+              title: Text("L I S  P W O D W I"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PajLisPwodwi()),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text("D E K O N E K T E"),
+            ),
           ],
         ),
-        drawer: Drawer(
-          child: ListView(
-            children: [
-              DrawerHeader(
-                child: Text(
-                  "Eboutikoo",
-                  style: TextStyle(fontSize: 20.0),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(10.0),
+        child: ListView(
+          //mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+                color: Color.fromARGB(255, 4, 38, 95),
+                height: 150,
+                width: 500,
+                alignment: Alignment.bottomRight,
+                child: Padding(
+                  padding: EdgeInsets.all(15),
+                  child: Text(
+                    "Kategori",
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                )),
+            SizedBox(
+              height: 16.0,
+            ),
+            //Second container
+            Container(
+                color: Color.fromARGB(255, 4, 38, 95),
+                height: 150,
+                width: 500,
+                alignment: Alignment.bottomRight,
+                child: Padding(
+                  padding: EdgeInsets.all(15),
+                  child: Text(
+                    "Kategori",
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                )),
+    
+            SizedBox(
+              height: 20.0,
+            ),
+    
+            //container en ligne
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    color: Color.fromARGB(255, 4, 38, 95),
+                    height: 150,
+                  ),
                 ),
-                decoration: BoxDecoration(color: Colors.blue),
-              ),
-              ListTile(
-                leading: Icon(Icons.login),
-                title: Text("K O N E K T E"),
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    '/konekte',
-                  );
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.shopping_bag),
-                title: Text("L I S  P W O D W I"),
-                onTap: () {
-                  Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LisPwodwi()));
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.logout),
-                title: Text("D E K O N E K T E"),
-              ),
-            ],
-          ),
-        ),
-        body: Padding(
-          padding: EdgeInsets.all(10.0),
-          child: ListView(
-            //mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                  color: Color.fromARGB(255, 4, 38, 95),
-                  height: 150,
-                  width: 500,
-                  alignment: Alignment.bottomRight,
-                  child: Padding(
-                    padding: EdgeInsets.all(15),
-                    child: Text(
-                      "Kategori",
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.white,
-                      ),
-                    ),
-                  )),
-              SizedBox(
-                height: 16.0,
-              ),
-              //Second container
-              Container(
-                  color: Color.fromARGB(255, 4, 38, 95),
-                  height: 150,
-                  width: 500,
-                  alignment: Alignment.bottomRight,
-                  child: Padding(
-                    padding: EdgeInsets.all(15),
-                    child: Text(
-                      "Kategori",
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.white,
-                      ),
-                    ),
-                  )),
-
-              SizedBox(
-                height: 20.0,
-              ),
-
-              //container en ligne
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      color: Color.fromARGB(255, 4, 38, 95),
-                      height: 150,
-                    ),
+                SizedBox(
+                  width: 15.0,
+                ),
+                Expanded(
+                  child: Container(
+                    color: Color.fromARGB(255, 4, 38, 95),
+                    height: 150,
                   ),
-                  SizedBox(
-                    width: 15.0,
-                  ),
-                  Expanded(
-                    child: Container(
-                      color: Color.fromARGB(255, 4, 38, 95),
-                      height: 150,
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
@@ -134,14 +141,14 @@ class MyBoutik extends StatelessWidget {
 }
 
 //Pou Pwodwi yo
-class LisPwodwi extends StatefulWidget {
-  const LisPwodwi({super.key});
+class PajLisPwodwi extends StatefulWidget {
+  const PajLisPwodwi({Key? key}) : super(key: key);
 
   @override
-  State<LisPwodwi> createState() => _LisPwodwiState();
+  State<PajLisPwodwi> createState() => _PajLisPwodwiState();
 }
 
-class _LisPwodwiState extends State<LisPwodwi> {
+class _PajLisPwodwiState extends State<PajLisPwodwi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -250,10 +257,3 @@ class _DetayPajState extends State<DetayPaj> {
     );
   }
 }
-
-
-
-
-
-
-
